@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps and Sets</title>
+    <style>
+        .title{
+            text-align: center;
+            color: red;
+            background-color: aliceblue;
+        }        
+    </style>
+</head>
+<body>
+    <h1 class="title">Maps and Sets</h1>
+    <div class="question">
+      <h3>
+        Q1. "Problem:
+        You are given a string (STR) of length N, consisting of only the lower case English alphabet.
+        Your task is to remove all the duplicate occurrences of characters in the string.
+        <pre>
+            Input:
+            abcadeecfb
+    
+            Output:
+            abcdef"	
+        </pre>
+        Ans.-
+      </h3>
+      <pre>
+        let str = "abcadeecfb"
+        let s = new Set(str)
+        let result = [...s].join("")
+        console.log(result)
+        </pre>
+        first we convert the given string into the Set object, which will remove duplicates from the string, then convert into an Array and apply join method to get the desired string.
+        <hr>
+    </div>
+    <div class="question">
+      <h3>
+        Q2. "Problem:
+        You are given a string (STR) of length N, you have to print the count of all alphabet.(using maps)
+        
+        <pre>
+            Input:
+            abcadeecfb
+            
+            Output:
+            a=2
+            b=2
+            c=2
+            d=1
+            e=2
+            f=1"
+        </pre>
+        Ans.-
+      </h3>
+      <pre>
+        let str = "abcadeecfb"
+        let count = new Map()
+        for(let char of str){
+            if (count.has(char)){
+                count.set(char, count.get(char)+1)
+            }else{
+                count.set(char,1)
+            }
+        }
+        for(let [key,value] of count.entries()){
+            console.log(`${key}=${value}`)
+        }
+        </pre>
+        first we created a Map object. Then we iterate over the string and for every character in the string checking that if the character already present in the Map as key if true then we are incrementing the value of char by 1 if not true then we set the char value to 1. and finally we iterate over the Map and logging the key value's.
+        <hr>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
